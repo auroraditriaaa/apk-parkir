@@ -1,0 +1,2401 @@
+
+/* =====================================================
+   PARKIRKU — COMPLETE DARK PINK DESIGN SYSTEM
+   Dusty Rose • Deep Plum • Soft Pink
+===================================================== */
+
+:root {
+    --pink-950: #482538;
+    --pink-900: #63334e;
+    --pink-800: #75415f;
+    --pink-700: #874563;
+    --pink-600: #a64d79;
+    --pink-500: #b96b91;
+    --pink-400: #cf91ad;
+    --pink-300: #e2bdce;
+    --pink-200: #eadce4;
+    --pink-100: #f6edf2;
+    --pink-50: #fcf7fa;
+
+    --primary: #874563;
+    --primary-hover: #63334e;
+    --primary-soft: #f1e3eb;
+
+    --success: #34745b;
+    --success-soft: #e0f1e8;
+    --warning: #956d2d;
+    --warning-soft: #fbf0d9;
+    --danger: #a54458;
+    --danger-soft: #f9e5e9;
+    --info: #536f94;
+    --info-soft: #e8eef7;
+
+    --text-main: #482538;
+    --text-secondary: #876f7d;
+    --text-muted: #a38d9b;
+
+    --body-bg: #f8f3f6;
+    --surface: #ffffff;
+    --border: #eadce4;
+
+    --radius-sm: 9px;
+    --radius-md: 14px;
+    --radius-lg: 19px;
+    --radius-xl: 24px;
+
+    --shadow-sm: 0 4px 12px rgba(72, 37, 56, .045);
+    --shadow-md: 0 8px 24px rgba(72, 37, 56, .075);
+    --shadow-lg: 0 14px 35px rgba(72, 37, 56, .12);
+}
+
+/* =====================================================
+   1. RESET & GLOBAL
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    min-height: 100%;
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    background: var(--body-bg);
+    color: var(--text-main);
+    font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color .2s ease;
+}
+
+a:hover {
+    color: var(--primary-hover);
+}
+
+img {
+    max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease,
+        transform .2s ease;
+}
+
+::selection {
+    color: #fff;
+    background: var(--pink-700);
+}
+
+/* =====================================================
+   2. MAIN APP LAYOUT
+===================================================== */
+
+.app-shell {
+    display: flex;
+    min-height: 100vh;
+    background: var(--body-bg);
+}
+
+.main-area {
+    flex: 1;
+    min-width: 0;
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            circle at 95% 0%,
+            rgba(166, 77, 121, .055),
+            transparent 28%
+        ),
+        var(--body-bg) !important;
+}
+
+.page-content {
+    width: 100%;
+    max-width: 1800px;
+    margin: 0 auto;
+    padding: 28px;
+}
+
+/* =====================================================
+   3. SIDEBAR
+===================================================== */
+
+.sidebar {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 250px;
+    width: 250px;
+    height: 100vh;
+    padding: 22px 15px;
+    overflow-y: auto;
+    background: linear-gradient(
+        180deg,
+        #fffafd 0%,
+        #f8eff5 100%
+    ) !important;
+    border-right: 1px solid var(--pink-200);
+    scrollbar-width: thin;
+    scrollbar-color: var(--pink-300) transparent;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 5px 8px 24px;
+    color: var(--pink-950) !important;
+}
+
+.brand-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 43px;
+    height: 43px;
+    border-radius: 13px;
+    color: #fff !important;
+    background: linear-gradient(
+        145deg,
+        var(--pink-500),
+        var(--pink-900)
+    ) !important;
+    box-shadow: 0 6px 14px rgba(135, 69, 99, .2);
+    font-size: 21px;
+}
+
+.brand h1,
+.brand h2,
+.brand strong {
+    margin: 0;
+    color: var(--pink-950);
+    font-size: 19px;
+    font-weight: 900;
+    letter-spacing: -.5px;
+}
+
+.brand small,
+.brand .subtitle {
+    display: block;
+    margin-top: 2px;
+    color: var(--pink-500);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.profile-mini {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    margin-bottom: 17px;
+    border: 1px solid var(--pink-200);
+    border-radius: 15px;
+    background: rgba(255,255,255,.8);
+}
+
+.avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    color: #fff;
+    background: linear-gradient(
+        145deg,
+        var(--pink-500),
+        var(--pink-800)
+    );
+    font-weight: 800;
+}
+
+.profile-mini strong {
+    display: block;
+    color: var(--pink-900);
+    font-size: 11px;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+.profile-mini small {
+    color: var(--pink-600);
+    font-size: 10px;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.nav-label {
+    padding: 17px 12px 7px;
+    color: var(--pink-400);
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+}
+
+.sidebar a,
+.sidebar .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    min-height: 43px;
+    padding: 10px 12px;
+    border: 1px solid transparent;
+    border-radius: 11px;
+    color: #896a83;
+    font-size: 12px;
+    font-weight: 700;
+    transition: all .2s ease;
+}
+
+.sidebar a i,
+.sidebar .nav-link i {
+    flex-shrink: 0;
+    color: var(--pink-400);
+    font-size: 17px;
+}
+
+.sidebar a:hover,
+.sidebar .nav-link:hover {
+    color: var(--pink-900);
+    background: var(--pink-100);
+}
+
+.sidebar a.active,
+.sidebar .nav-link.active,
+.sidebar .active > a {
+    border-color: #ead2df;
+    color: #fff !important;
+    background: linear-gradient(
+        100deg,
+        var(--pink-800),
+        var(--pink-600)
+    ) !important;
+    box-shadow: 0 5px 12px rgba(135, 69, 99, .14);
+}
+
+.sidebar a.active i,
+.sidebar .nav-link.active i,
+.sidebar .active > a i {
+    color: #fff !important;
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px dashed var(--pink-200);
+}
+
+/* =====================================================
+   4. TOPBAR
+===================================================== */
+
+.topbar {
+    position: sticky;
+    z-index: 50;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-height: 78px;
+    padding: 15px 28px;
+    border-bottom: 1px solid var(--pink-200);
+    background: rgba(255, 250, 253, .94);
+    backdrop-filter: blur(14px);
+}
+
+.topbar h1,
+.topbar h2,
+.topbar .page-title {
+    margin: 0;
+    color: var(--pink-950);
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.topbar small {
+    color: var(--pink-500);
+}
+
+.topbar .user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 13px;
+    border: 1px solid var(--pink-200);
+    border-radius: 30px;
+    color: var(--pink-800);
+    background: #fff;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+/* =====================================================
+   5. WELCOME BANNER
+===================================================== */
+
+.welcome {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: 30px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: var(--radius-xl);
+    color: #fff;
+    background: linear-gradient(
+        115deg,
+        #63334e 0%,
+        #854362 55%,
+        #a65b7b 100%
+    ) !important;
+    box-shadow: 0 10px 25px rgba(89, 43, 66, .12);
+}
+
+.welcome::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -145px;
+    right: 8%;
+    width: 230px;
+    height: 230px;
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 18px rgba(255,255,255,.035),
+        0 0 0 36px rgba(255,255,255,.025);
+    pointer-events: none;
+}
+
+.welcome::after {
+    content: "P";
+    position: absolute;
+    z-index: -1;
+    right: 30px;
+    bottom: -48px;
+    color: rgba(255,255,255,.07);
+    font-size: 145px;
+    font-weight: 900;
+    line-height: 1;
+    pointer-events: none;
+}
+
+.welcome h2 {
+    margin: 0 0 8px;
+    color: #fff;
+    font-size: clamp(23px, 2vw, 30px);
+    font-weight: 900;
+}
+
+.welcome p {
+    margin: 0;
+    color: #f3e6ed;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+/* =====================================================
+   6. STATISTIC CARDS
+===================================================== */
+
+.stat-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    height: 100%;
+    min-height: 104px;
+    padding: 20px;
+    overflow: hidden;
+    border: 1px solid var(--pink-200) !important;
+    border-radius: 18px !important;
+    background: #fff !important;
+    box-shadow: var(--shadow-sm) !important;
+    transition: transform .2s, box-shadow .2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md) !important;
+}
+
+.stat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 45px;
+    width: 45px;
+    height: 45px;
+    border-radius: 13px;
+    color: #fff !important;
+    background: linear-gradient(
+        145deg,
+        #b36b8e,
+        #874563
+    ) !important;
+    box-shadow: 0 5px 12px rgba(135, 69, 99, .16);
+    font-size: 21px;
+}
+
+.row.g-3.mb-4 > div:nth-child(2) .stat-icon {
+    background: linear-gradient(145deg, #95627e, #70435d) !important;
+}
+
+.row.g-3.mb-4 > div:nth-child(3) .stat-icon {
+    background: linear-gradient(145deg, #c07d91, #9a526e) !important;
+}
+
+.row.g-3.mb-4 > div:nth-child(4) .stat-icon {
+    background: linear-gradient(145deg, #a27a98, #76536f) !important;
+}
+
+.stat-label {
+    margin-bottom: 6px;
+    color: var(--text-muted) !important;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.stat-value {
+    color: var(--pink-950) !important;
+    font-size: clamp(20px, 2vw, 27px);
+    font-weight: 900;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+/* =====================================================
+   7. PANELS & SECTION HEADINGS
+===================================================== */
+
+.panel,
+.card {
+    border: 1px solid var(--pink-200) !important;
+    border-radius: var(--radius-lg) !important;
+    background: #fff !important;
+    box-shadow: var(--shadow-sm);
+}
+
+.panel {
+    overflow: hidden;
+}
+
+.panel-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 21px 22px;
+    border-bottom: 1px solid var(--pink-100);
+    background: #fff;
+}
+
+.section-heading {
+    position: relative;
+    padding-left: 13px;
+    color: var(--pink-950) !important;
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.section-heading::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    bottom: 3px;
+    left: 0;
+    width: 4px;
+    border-radius: 5px;
+    background: var(--pink-600);
+}
+
+.card-header {
+    padding: 17px 20px;
+    border-bottom: 1px solid var(--pink-100) !important;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0 !important;
+    color: var(--pink-950);
+    background: #fff7fb !important;
+    font-weight: 800;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+/* =====================================================
+   8. BUTTONS
+===================================================== */
+
+.btn {
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    transition: all .2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn-primary,
+.panel-head .btn-primary {
+    border: 1px solid var(--pink-800) !important;
+    color: #fff !important;
+    background: var(--pink-800) !important;
+    box-shadow: 0 4px 10px rgba(89, 43, 66, .10);
+}
+
+.btn-primary:hover,
+.panel-head .btn-primary:hover {
+    border-color: var(--pink-950) !important;
+    color: #fff !important;
+    background: var(--pink-950) !important;
+}
+
+.btn-secondary {
+    border-color: #e5d8e0 !important;
+    color: var(--pink-800) !important;
+    background: #f5edf2 !important;
+}
+
+.btn-secondary:hover {
+    background: #eadce4 !important;
+}
+
+.btn-success {
+    border-color: #34745b !important;
+    color: #fff !important;
+    background: #34745b !important;
+}
+
+.btn-danger {
+    border-color: #a54458 !important;
+    color: #fff !important;
+    background: #a54458 !important;
+}
+
+.btn-warning {
+    border-color: #ead4a9 !important;
+    color: #76551e !important;
+    background: #fbf0d9 !important;
+}
+
+.btn-outline-primary {
+    border-color: var(--pink-600) !important;
+    color: var(--pink-800) !important;
+    background: transparent !important;
+}
+
+.btn-outline-primary:hover {
+    color: #fff !important;
+    background: var(--pink-800) !important;
+}
+
+.btn-light {
+    border-color: var(--pink-200) !important;
+    color: var(--pink-900) !important;
+    background: #fff !important;
+}
+
+/* =====================================================
+   9. FORMS & INPUTS
+===================================================== */
+
+.form-label {
+    margin-bottom: 7px;
+    color: var(--pink-900);
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.form-control,
+.form-select {
+    min-height: 43px;
+    border: 1px solid #e3d4de !important;
+    border-radius: 10px !important;
+    color: var(--pink-950) !important;
+    background-color: #fff !important;
+    font-size: 13px;
+    box-shadow: none !important;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+.form-control::placeholder {
+    color: #b29eac;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--pink-500) !important;
+    box-shadow: 0 0 0 3px rgba(166, 77, 121, .11) !important;
+}
+
+textarea.form-control {
+    min-height: 100px;
+}
+
+.form-check-input {
+    border-color: #cdb7c5;
+    cursor: pointer;
+}
+
+.form-check-input:checked {
+    border-color: var(--pink-800);
+    background-color: var(--pink-800);
+}
+
+.input-group-text {
+    border-color: var(--pink-200);
+    color: var(--pink-800);
+    background: var(--pink-100);
+}
+
+/* =====================================================
+   10. TABLES
+===================================================== */
+
+.table-responsive {
+    width: 100%;
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+
+.table {
+    margin-bottom: 0 !important;
+    vertical-align: middle;
+    --bs-table-bg: transparent;
+    --bs-table-color: var(--text-secondary);
+}
+
+.table thead th {
+    padding: 15px 12px;
+    border-bottom: 1px solid var(--pink-200) !important;
+    color: #795067 !important;
+    background: var(--pink-100) !important;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: .4px;
+    white-space: nowrap;
+}
+
+.table tbody td {
+    padding: 14px 12px;
+    border-bottom: 1px solid #f1e7ed !important;
+    color: #876f7d;
+    font-size: 12px;
+}
+
+.table tbody tr {
+    transition: background .15s;
+}
+
+.table tbody tr:hover td {
+    background: #fcf7fa !important;
+}
+
+.table tbody tr:last-child td {
+    border-bottom: 0 !important;
+}
+
+.table tbody td strong {
+    color: var(--pink-900);
+    font-weight: 800;
+}
+
+.table .empty-state {
+    padding: 30px !important;
+    color: var(--text-muted) !important;
+    text-align: center;
+}
+
+/* =====================================================
+   11. BADGES & STATUS
+===================================================== */
+
+.badge {
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.text-bg-primary,
+.badge.bg-primary {
+    color: #854362 !important;
+    background: #f1e3eb !important;
+}
+
+.text-bg-success,
+.badge.bg-success {
+    color: #34745b !important;
+    background: #e0f1e8 !important;
+}
+
+.text-bg-danger,
+.badge.bg-danger {
+    color: #a54458 !important;
+    background: #f9e5e9 !important;
+}
+
+.text-bg-warning,
+.badge.bg-warning {
+    color: #956d2d !important;
+    background: #fbf0d9 !important;
+}
+
+.text-bg-secondary,
+.badge.bg-secondary {
+    color: #6d5967 !important;
+    background: #eee7ec !important;
+}
+
+.text-bg-info,
+.badge.bg-info {
+    color: #536f94 !important;
+    background: #e8eef7 !important;
+}
+
+/* =====================================================
+   12. ALERTS & NOTIFICATIONS
+===================================================== */
+
+.alert {
+    padding: 13px 16px;
+    border-radius: 12px;
+    font-size: 12px;
+}
+
+.alert-success {
+    border-color: #cde9da;
+    color: #34745b;
+    background: #eaf7f0;
+}
+
+.alert-danger {
+    border-color: #f0cbd3;
+    color: #a54458;
+    background: #fff0f2;
+}
+
+.alert-warning {
+    border-color: #f0dfbb;
+    color: #956d2d;
+    background: #fff8e9;
+}
+
+.alert-info {
+    border-color: #d5e1f0;
+    color: #536f94;
+    background: #f0f5fc;
+}
+
+/* =====================================================
+   13. LOGIN PAGE
+===================================================== */
+
+.auth-page {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(380px, .9fr);
+    min-height: 100vh;
+    padding: 35px;
+    gap: 0;
+    background:
+        radial-gradient(
+            circle at 5% 90%,
+            rgba(166, 77, 121, .10),
+            transparent 30%
+        ),
+        #f8f3f6 !important;
+}
+
+.auth-brand {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 570px;
+    padding: clamp(30px, 5vw, 75px);
+    overflow: hidden;
+    border-radius: 24px 0 0 24px;
+    color: #fff;
+    background: linear-gradient(
+        145deg,
+        #63334e,
+        #874563 65%,
+        #a65b7b
+    ) !important;
+}
+
+.auth-brand::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    right: -80px;
+    width: 300px;
+    height: 300px;
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 25px rgba(255,255,255,.035),
+        0 0 0 50px rgba(255,255,255,.025);
+}
+
+.auth-brand .big-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75px;
+    height: 75px;
+    margin-bottom: 22px;
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 23px;
+    color: #fff;
+    background: rgba(255,255,255,.12);
+    box-shadow: 0 10px 25px rgba(40, 15, 30, .12);
+    font-size: 39px;
+}
+
+.auth-brand h1 {
+    margin: 0 0 13px;
+    color: #fff;
+    font-size: clamp(36px, 4vw, 54px);
+    font-weight: 900;
+    letter-spacing: -1.5px;
+}
+
+.auth-brand p {
+    max-width: 450px;
+    margin: 0;
+    color: #f2e4eb;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.auth-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 35px;
+    border: 1px solid var(--pink-200);
+    border-left: 0;
+    border-radius: 0 24px 24px 0;
+    background: rgba(255,255,255,.94);
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 410px;
+    padding: 10px;
+}
+
+.auth-card h2 {
+    margin-bottom: 8px;
+    color: var(--pink-950);
+    font-size: 29px;
+    font-weight: 900;
+    letter-spacing: -.7px;
+}
+
+.auth-card .muted {
+    margin-bottom: 28px;
+    color: var(--text-muted);
+    font-size: 13px;
+}
+
+.auth-card .form-label {
+    color: var(--pink-900);
+    font-size: 12px;
+}
+
+.auth-card .form-control {
+    min-height: 48px;
+    padding: 12px 15px;
+    border-radius: 11px !important;
+}
+
+.auth-card .btn-primary {
+    min-height: 47px;
+    border: 0 !important;
+    border-radius: 11px !important;
+    color: #fff !important;
+    background: linear-gradient(
+        100deg,
+        #75415f,
+        #a64d79
+    ) !important;
+    box-shadow: 0 6px 15px rgba(135, 69, 99, .16);
+    font-weight: 800;
+}
+
+.auth-card .btn-primary:hover {
+    background: linear-gradient(
+        100deg,
+        #482538,
+        #75415f
+    ) !important;
+}
+
+.login-help {
+    padding-top: 15px;
+    border-top: 1px solid var(--pink-100);
+    color: var(--text-muted);
+    font-size: 11px;
+    line-height: 1.8;
+    text-align: center;
+}
+
+/* =====================================================
+   14. TICKET / STRUK PARKIR
+===================================================== */
+
+.ticket {
+    width: 100%;
+    max-width: 420px;
+    margin: 20px auto;
+    padding: 24px;
+    border: 1px solid var(--pink-200);
+    border-radius: 15px;
+    color: var(--pink-950);
+    background: #fff;
+    box-shadow: var(--shadow-md);
+    font-size: 12px;
+}
+
+.ticket h1,
+.ticket h2,
+.ticket h3 {
+    color: var(--pink-950);
+    font-weight: 900;
+    text-align: center;
+}
+
+.ticket .ticket-logo {
+    color: var(--pink-800);
+    font-size: 25px;
+    font-weight: 900;
+    text-align: center;
+}
+
+.ticket hr {
+    border-color: var(--pink-300);
+    border-style: dashed;
+    opacity: .8;
+}
+
+.ticket .ticket-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 15px 0;
+    border-top: 1px dashed var(--pink-300);
+    border-bottom: 1px dashed var(--pink-300);
+    font-size: 15px;
+    font-weight: 900;
+}
+
+.ticket .ticket-total strong {
+    color: var(--pink-800);
+    font-size: 19px;
+}
+
+.ticket table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.ticket table td {
+    padding: 5px 0;
+    vertical-align: top;
+}
+
+.ticket table td:first-child {
+    width: 42%;
+    color: var(--text-muted);
+}
+
+.ticket table td:last-child {
+    color: var(--pink-950);
+    font-weight: 700;
+    text-align: right;
+}
+
+.ticket .ticket-footer {
+    margin-top: 18px;
+    color: var(--text-muted);
+    font-size: 10px;
+    line-height: 1.8;
+    text-align: center;
+}
+
+/* =====================================================
+   15. FILTERS, PAGINATION & FOOTER
+===================================================== */
+
+.filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding: 16px;
+    border: 1px solid var(--pink-200);
+    border-radius: var(--radius-md);
+    background: #fff;
+}
+
+.pagination {
+    gap: 5px;
+}
+
+.pagination .page-link {
+    border: 1px solid var(--pink-200);
+    border-radius: 8px !important;
+    color: var(--pink-800);
+    background: #fff;
+}
+
+.pagination .page-link:hover {
+    color: var(--pink-950);
+    background: var(--pink-100);
+}
+
+.pagination .active .page-link {
+    border-color: var(--pink-800);
+    color: #fff;
+    background: var(--pink-800);
+}
+
+.footer-note {
+    padding: 16px;
+    color: var(--text-muted);
+    font-size: 10px;
+    text-align: center;
+}
+
+/* =====================================================
+   16. GENERAL UTILITIES
+===================================================== */
+
+hr {
+    border-color: var(--pink-200);
+    opacity: 1;
+}
+
+.text-primary {
+    color: var(--pink-800) !important;
+}
+
+.text-muted,
+.text-secondary {
+    color: var(--text-muted) !important;
+}
+
+.bg-primary {
+    background-color: var(--pink-800) !important;
+}
+
+.border {
+    border-color: var(--pink-200) !important;
+}
+
+.dropdown-menu {
+    padding: 7px;
+    border: 1px solid var(--pink-200);
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: var(--shadow-md);
+}
+
+.dropdown-item {
+    padding: 9px 12px;
+    border-radius: 8px;
+    color: var(--pink-900);
+    font-size: 12px;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+    color: var(--pink-950);
+    background: var(--pink-100);
+}
+
+.modal-content {
+    overflow: hidden;
+    border: 1px solid var(--pink-200);
+    border-radius: 17px;
+    box-shadow: var(--shadow-lg);
+}
+
+.modal-header {
+    border-bottom-color: var(--pink-200);
+    background: #fff8fb;
+}
+
+.modal-title {
+    color: var(--pink-950);
+    font-weight: 900;
+}
+
+.modal-footer {
+    border-top-color: var(--pink-200);
+}
+
+/* =====================================================
+   17. RESPONSIVE TABLET
+===================================================== */
+
+@media (max-width: 1100px) {
+    .sidebar {
+        flex-basis: 220px;
+        width: 220px;
+    }
+
+    .page-content {
+        padding: 22px;
+    }
+
+    .topbar {
+        padding: 14px 22px;
+    }
+
+    .stat-card {
+        padding: 16px;
+    }
+}
+
+/* =====================================================
+   18. RESPONSIVE MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+    .app-shell {
+        display: block;
+    }
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        max-height: none;
+        padding: 12px;
+        border-right: 0;
+        border-bottom: 1px solid var(--pink-200);
+    }
+
+    .brand {
+        padding-bottom: 12px;
+    }
+
+    .profile-mini {
+        margin-bottom: 10px;
+    }
+
+    .nav-menu {
+        gap: 4px;
+    }
+
+    .nav-label {
+        padding-top: 10px;
+    }
+
+    .sidebar-bottom {
+        margin-top: 10px;
+    }
+
+    .main-area {
+        width: 100%;
+        min-height: auto;
+    }
+
+    .topbar {
+        position: relative;
+        min-height: 65px;
+        padding: 13px 16px;
+    }
+
+    .topbar h1,
+    .topbar h2,
+    .topbar .page-title {
+        font-size: 19px;
+    }
+
+    .page-content {
+        padding: 16px;
+    }
+
+    .auth-page {
+        grid-template-columns: 1fr;
+        padding: 16px;
+    }
+
+    .auth-brand {
+        min-height: 220px;
+        padding: 28px;
+        border-radius: 20px 20px 0 0;
+    }
+
+    .auth-brand .big-icon {
+        width: 55px;
+        height: 55px;
+        margin-bottom: 12px;
+        border-radius: 16px;
+        font-size: 29px;
+    }
+
+    .auth-brand h1 {
+        font-size: 34px;
+    }
+
+    .auth-brand p {
+        font-size: 12px;
+    }
+
+    .auth-box {
+        padding: 22px 18px;
+        border: 1px solid var(--pink-200);
+        border-top: 0;
+        border-radius: 0 0 20px 20px;
+    }
+
+    .auth-card {
+        padding: 5px;
+    }
+
+    .auth-card h2 {
+        font-size: 25px;
+    }
+}
+
+/* =====================================================
+   19. SMALL MOBILE
+===================================================== */
+
+@media (max-width: 576px) {
+    body {
+        font-size: 13px;
+    }
+
+    .page-content {
+        padding: 13px;
+    }
+
+    .welcome {
+        padding: 23px 19px;
+        margin-bottom: 16px;
+        border-radius: 17px;
+    }
+
+    .welcome h2 {
+        max-width: 85%;
+        font-size: 22px;
+    }
+
+    .welcome p {
+        max-width: 90%;
+        font-size: 12px;
+    }
+
+    .welcome::after {
+        right: 12px;
+        bottom: -25px;
+        font-size: 100px;
+    }
+
+    .stat-card {
+        min-height: 88px;
+        padding: 14px;
+        gap: 11px;
+        border-radius: 15px !important;
+    }
+
+    .stat-icon {
+        flex-basis: 40px;
+        width: 40px;
+        height: 40px;
+        border-radius: 11px;
+        font-size: 19px;
+    }
+
+    .stat-label {
+        font-size: 10px;
+    }
+
+    .stat-value {
+        font-size: 21px;
+    }
+
+    .panel {
+        border-radius: 16px !important;
+    }
+
+    .panel-head {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 16px;
+    }
+
+    .panel-head .btn {
+        max-width: 100%;
+    }
+
+    .table thead th,
+    .table tbody td {
+        padding: 12px;
+        font-size: 10px;
+    }
+
+    .filter-row {
+        align-items: stretch;
+        flex-direction: column;
+        padding: 13px;
+    }
+
+    .filter-row > * {
+        width: 100%;
+    }
+
+    .ticket {
+        padding: 17px;
+    }
+}
+
+/* ===================================
+   PERAPIAN TEKS STRUK THERMAL
+=================================== */
+
+@media print {
+    @page {
+        size: 58mm auto;
+        margin: 2mm;
+    }
+
+    html,
+    body {
+        width: 54mm !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        color: #000 !important;
+        background: #fff !important;
+        font-family: "Courier New", monospace !important;
+        font-size: 8pt !important;
+        line-height: 1.4 !important;
+    }
+
+    .ticket {
+        width: 100% !important;
+        max-width: 54mm !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+        border: none !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        color: #000 !important;
+        font-family: "Courier New", monospace !important;
+        font-size: 8pt !important;
+        line-height: 1.4 !important;
+    }
+
+    /* Judul struk */
+    .ticket h1,
+    .ticket h2,
+    .ticket h3 {
+        text-align: center !important;
+        font-size: 12pt !important;
+        font-weight: bold !important;
+        margin: 0 0 2mm !important;
+        color: #000 !important;
+    }
+
+    /* Keterangan */
+    .ticket p {
+        margin: 1mm 0 !important;
+        line-height: 1.4 !important;
+        font-size: 8pt !important;
+        color: #000 !important;
+    }
+
+    /* Garis pemisah */
+    .ticket hr,
+    .ticket .divider {
+        border: 0 !important;
+        border-top: 1px dashed #000 !important;
+        margin: 2mm 0 !important;
+        opacity: 1 !important;
+    }
+
+    /* Baris label dan nilai */
+    .ticket .row {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        align-items: flex-start !important;
+        margin: 0 !important;
+    }
+
+    .ticket .row > * {
+        padding: 0 !important;
+    }
+
+    .ticket strong,
+    .ticket b {
+        font-weight: bold !important;
+        color: #000 !important;
+    }
+
+    /* Total pembayaran */
+    .ticket .total {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        gap: 2mm !important;
+        padding: 2mm 0 !important;
+        margin: 2mm 0 !important;
+        border-top: 1px dashed #000 !important;
+        border-bottom: 1px dashed #000 !important;
+        font-size: 10pt !important;
+        font-weight: bold !important;
+    }
+
+    /* Footer */
+    .ticket .text-center,
+    .ticket footer {
+        text-align: center !important;
+        font-size: 7.5pt !important;
+        line-height: 1.5 !important;
+        color: #000 !important;
+    }
+
+    .ticket table {
+        width: 100% !important;
+        border-collapse: collapse !important;
+        table-layout: fixed !important;
+        font-size: 8pt !important;
+    }
+
+    .ticket table td,
+    .ticket table th {
+        padding: 0.5mm 0 !important;
+        border: none !important;
+        color: #000 !important;
+        background: #fff !important;
+        overflow-wrap: break-word !important;
+    }
+
+    a {
+        color: #000 !important;
+        text-decoration: none !important;
+    }
+}
+
+/* ================================
+   FORM TAMBAH USER — PINK DARK
+================================ */
+
+.panel {
+    padding: 24px !important;
+    border: 1px solid #ead5e3 !important;
+    border-radius: 18px !important;
+    background: #fff !important;
+    box-shadow: 0 5px 18px rgba(91, 35, 69, 0.06) !important;
+}
+
+.panel-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.panel-head h2,
+.section-heading {
+    margin: 0;
+    color: #64284f !important;
+    font-size: 19px;
+    font-weight: 750;
+}
+
+/* Form agar tidak menempel ke tepi */
+.panel form {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+}
+
+/* Label */
+.panel form .form-label {
+    display: block;
+    margin-bottom: 7px;
+    color: #63314f;
+    font-size: 13px;
+    font-weight: 650;
+}
+
+/* Input dan pilihan */
+.panel form .form-control,
+.panel form .form-select {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 13px;
+    border: 1px solid #e5cbdc;
+    border-radius: 11px;
+    background-color: #fff;
+    color: #49243d;
+    font-size: 14px;
+    box-shadow: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.panel form .form-control:focus,
+.panel form .form-select:focus {
+    border-color: #a64b80;
+    box-shadow: 0 0 0 3px rgba(166, 75, 128, 0.12);
+    outline: none;
+}
+
+/* Jarak setiap kolom */
+.panel form .mb-3,
+.panel form .mb-4 {
+    margin-bottom: 0 !important;
+}
+
+/* Checkbox akun aktif */
+.panel form .form-check {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    min-height: 24px;
+    margin: 0;
+    padding-left: 0;
+}
+
+.panel form .form-check-input {
+    float: none;
+    flex-shrink: 0;
+    width: 17px;
+    height: 17px;
+    margin: 0;
+    border-color: #c9a5bc;
+    cursor: pointer;
+}
+
+.panel form .form-check-input:checked {
+    background-color: #873b68;
+    border-color: #873b68;
+}
+
+.panel form .form-check-label {
+    color: #63314f;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+/* Tombol simpan */
+.panel form .btn {
+    align-self: flex-start;
+    min-height: 41px;
+    padding: 10px 20px !important;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #873b68, #a34b7d);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(135, 59, 104, 0.17);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.panel form .btn:hover {
+    background: linear-gradient(135deg, #713055, #8d3b69);
+    box-shadow: 0 6px 14px rgba(135, 59, 104, 0.22);
+    transform: translateY(-1px);
+}
+
+/* Responsif untuk HP */
+@media (max-width: 576px) {
+    .panel {
+        padding: 17px !important;
+        border-radius: 14px !important;
+    }
+
+    .panel-head h2,
+    .section-heading {
+        font-size: 17px;
+    }
+
+    .panel form {
+        gap: 15px;
+    }
+
+    .panel form .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ==========================================
+   TRANSAKSI PARKIR — PINK DARK RAPI
+   Sesuai struktur transaksi.php
+========================================== */
+
+/* Jarak antar panel dan kolom */
+.row.g-4 {
+    align-items: flex-start;
+}
+
+.row.g-4 > [class*="col-"] {
+    min-width: 0;
+}
+
+.row.g-4 .panel {
+    padding: 22px !important;
+    margin-bottom: 20px;
+    border: 1px solid #ead5e3 !important;
+    border-radius: 17px !important;
+    background: #fff !important;
+    box-shadow: 0 5px 18px rgba(91, 35, 69, 0.05) !important;
+}
+
+/* Judul panel */
+.row.g-4 .section-heading {
+    position: relative;
+    margin: 0 0 20px !important;
+    padding-left: 13px;
+    color: #65284f !important;
+    font-size: 18px !important;
+    font-weight: 750 !important;
+    line-height: 1.4;
+}
+
+.row.g-4 .section-heading::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 3px;
+    width: 4px;
+    height: 19px;
+    border-radius: 5px;
+    background: #9a4777;
+}
+
+/* Form catat kendaraan masuk */
+.row.g-4 > .col-xl-4 .panel form:not(.filter-row) {
+    display: block;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+}
+
+.row.g-4 .form-label {
+    display: block;
+    margin-bottom: 8px !important;
+    color: #63314f !important;
+    font-size: 13px;
+    font-weight: 650;
+}
+
+.row.g-4 .form-control,
+.row.g-4 .form-select {
+    width: 100%;
+    min-height: 43px;
+    padding: 10px 12px;
+    border: 1px solid #e5cbdc !important;
+    border-radius: 10px !important;
+    background-color: #fff !important;
+    color: #49243d !important;
+    font-size: 13px;
+    box-shadow: none;
+}
+
+.row.g-4 .form-control:focus,
+.row.g-4 .form-select:focus {
+    border-color: #a34b7d !important;
+    box-shadow: 0 0 0 3px rgba(163, 75, 125, 0.11) !important;
+}
+
+.row.g-4 .form-text {
+    margin-top: 7px;
+    color: #92758a;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+/* Tombol utama */
+.row.g-4 .btn-primary {
+    border: 1px solid #873b68 !important;
+    border-radius: 10px !important;
+    background: #873b68 !important;
+    color: #fff !important;
+    font-size: 12px;
+    font-weight: 700;
+    box-shadow: 0 4px 9px rgba(135, 59, 104, 0.13);
+}
+
+.row.g-4 .btn-primary:hover {
+    border-color: #713055 !important;
+    background: #713055 !important;
+}
+
+/* Tarif saat ini */
+.row.g-4 .border-bottom {
+    border-color: #f0e2eb !important;
+    gap: 12px;
+    font-size: 13px;
+}
+
+.row.g-4 .border-bottom strong {
+    color: #65284f;
+    white-space: nowrap;
+}
+
+/* Panel riwayat transaksi */
+.row.g-4 > .col-xl-8 > .panel {
+    min-width: 0;
+}
+
+.row.g-4 .panel-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f2e5ed;
+}
+
+.row.g-4 .panel-head .section-heading {
+    margin: 0 !important;
+}
+
+/* FILTER: cari dan status sejajar */
+.row.g-4 form.filter-row {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 155px auto;
+    align-items: end;
+    gap: 14px;
+    width: 100%;
+    margin: 0 0 18px !important;
+    padding: 16px !important;
+    border: 1px solid #ecd8e5 !important;
+    border-radius: 13px !important;
+    background: #fffafd !important;
+}
+
+/* Kelompok input filter */
+.row.g-4 form.filter-row > div {
+    min-width: 0;
+    margin: 0 !important;
+}
+
+/* Label filter */
+.row.g-4 form.filter-row .form-label {
+    margin-bottom: 7px !important;
+    white-space: nowrap;
+}
+
+/* Tinggi input filter seragam */
+.row.g-4 form.filter-row .form-control,
+.row.g-4 form.filter-row .form-select {
+    height: 42px;
+    min-height: 42px;
+}
+
+/* Tombol filter */
+.row.g-4 form.filter-row > .btn {
+    height: 42px;
+    min-width: 82px;
+    padding: 0 18px !important;
+    margin: 0 !important;
+    border: none !important;
+    border-radius: 9px !important;
+    background: #873b68 !important;
+    color: #fff !important;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* Tabel tidak meluber */
+.row.g-4 .table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid #f0e2eb;
+    border-radius: 11px;
+}
+
+.row.g-4 .table {
+    width: 100%;
+    min-width: 610px;
+    margin: 0 !important;
+    border-collapse: separate;
+    border-spacing: 0;
+    vertical-align: middle;
+    font-size: 12px;
+}
+
+.row.g-4 .table thead th {
+    padding: 14px 12px !important;
+    border-bottom: 1px solid #ead5e3 !important;
+    background: #f8edf4 !important;
+    color: #713758 !important;
+    font-size: 11px;
+    font-weight: 750;
+    white-space: nowrap;
+}
+
+.row.g-4 .table tbody td {
+    padding: 13px 12px !important;
+    border-bottom: 1px solid #f2e6ee !important;
+    background: #fff !important;
+    color: #765c70;
+}
+
+.row.g-4 .table tbody tr:last-child td {
+    border-bottom: 0 !important;
+}
+
+.row.g-4 .table tbody tr:hover td {
+    background: #fff9fc !important;
+}
+
+.row.g-4 .table td strong {
+    color: #64284f;
+    font-weight: 750;
+}
+
+.row.g-4 .table td small {
+    margin-top: 3px;
+    font-size: 11px;
+}
+
+/* Badge status */
+.row.g-4 .table .badge {
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+/* Tombol Keluar dan Struk */
+.row.g-4 .table td form {
+    display: inline-block;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: transparent !important;
+}
+
+.row.g-4 .table .btn {
+    min-height: 30px;
+    padding: 6px 11px !important;
+    border-radius: 8px !important;
+    font-size: 11px;
+    font-weight: 650;
+    white-space: nowrap;
+}
+
+.row.g-4 .table .btn-outline-secondary {
+    border: 1px solid #d9b8cc !important;
+    background: #fff !important;
+    color: #78395e !important;
+}
+
+.row.g-4 .table .btn-outline-secondary:hover {
+    background: #f8edf4 !important;
+}
+
+/* Tampilan tablet dan HP */
+@media (max-width: 1199px) {
+    .row.g-4 form.filter-row {
+        grid-template-columns: minmax(0, 1fr) 145px auto;
+    }
+}
+
+@media (max-width: 650px) {
+    .row.g-4 .panel {
+        padding: 16px !important;
+        border-radius: 14px !important;
+    }
+
+    .row.g-4 form.filter-row {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 13px;
+        padding: 14px !important;
+    }
+
+    .row.g-4 form.filter-row > .btn {
+        width: 100%;
+    }
+
+    .row.g-4 .table {
+        min-width: 610px;
+    }
+}
+
+
+/* ===== PARKIRKU LOGIN - TAMPILAN BARU ===== */
+
+body {
+    background: linear-gradient(135deg, #582842 0%, #80445f 55%, #914c6c 100%);
+    color: #fff;
+}
+
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+    padding: 40px 6%;
+}
+
+.auth-brand {
+    width: 100%;
+    max-width: 1120px;
+    padding: 0;
+    color: #fff;
+}
+
+.auth-brand > h1 {
+    color: #fff;
+    font-size: clamp(46px, 6vw, 76px);
+    font-weight: 800;
+    letter-spacing: -2px;
+    margin: 20px 0 12px;
+}
+
+.auth-brand > p {
+    max-width: 850px;
+    color: #f8eaf1;
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 38px;
+}
+
+.big-icon {
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.24);
+    color: #fff;
+}
+
+.big-icon i {
+    font-size: 48px;
+}
+
+/* KARTU TOTAL PARKIR */
+
+.login-parking-card {
+    width: 100%;
+    padding: 28px 30px;
+    border: 1px solid rgba(255,255,255,.28);
+    border-radius: 26px;
+    background: rgba(52, 19, 40, .30);
+    color: #fff;
+    box-shadow: 0 10px 30px rgba(40, 10, 30, .08);
+}
+
+.parking-card-top {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 30px;
+}
+
+.parking-icon {
+    width: 68px;
+    height: 68px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #e78bb7, #b84d87);
+    color: #fff;
+    font-size: 36px;
+}
+
+.parking-info {
+    flex: 1;
+}
+
+.parking-label {
+    display: block;
+    color: #f2b4d2;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.parking-info h3 {
+    color: #fff;
+    font-size: 27px;
+    font-weight: 750;
+    margin: 0 0 7px;
+}
+
+.parking-info p {
+    color: #ead4e1;
+    font-size: 15px;
+    margin: 0;
+}
+
+.parking-live {
+    border: 1px solid rgba(255,255,255,.24);
+    border-radius: 25px;
+    padding: 10px 17px;
+    color: #fff;
+    white-space: nowrap;
+}
+
+.live-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 5px;
+    border-radius: 50%;
+    background: #7af0ad;
+}
+
+/* ANGKA TOTAL */
+
+.parking-count {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 18px;
+}
+
+.parking-count strong {
+    display: block;
+    color: #fff;
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.parking-count span {
+    display: block;
+    color: #f0dce7;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+.parking-total {
+    text-align: right;
+}
+
+/* PROGRESS BAR */
+
+.parking-progress {
+    height: 9px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: rgba(232, 173, 204, .30);
+    margin-bottom: 20px;
+}
+
+.parking-progress-fill {
+    height: 100%;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #f3a3cc, #e976b1);
+    transition: width .3s ease;
+}
+
+/* BAGIAN BAWAH KARTU TOTAL */
+
+.parking-card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    border-top: 1px solid rgba(255,255,255,.22);
+    padding-top: 18px;
+    color: #f5e5ee;
+    font-size: 14px;
+}
+
+.parking-card-bottom i {
+    color: #f5a9ce;
+    margin-right: 7px;
+}
+
+/* KARTU MOTOR DAN MOBIL */
+
+.vehicle-parking-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 18px;
+}
+
+.vehicle-parking-card {
+    min-width: 0;
+    padding: 24px;
+    border: 1px solid rgba(255,255,255,.28);
+    border-radius: 24px;
+    background: rgba(52, 19, 40, .30);
+    color: #fff;
+}
+
+.vehicle-heading {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.vehicle-icon {
+    width: 65px;
+    height: 65px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 17px;
+    background: linear-gradient(135deg, #e78bb7, #b84d87);
+    color: #fff;
+    font-size: 31px;
+}
+
+.vehicle-heading h3 {
+    color: #fff;
+    font-size: 25px;
+    font-weight: 750;
+    margin: 0 0 6px;
+}
+
+.vehicle-heading p {
+    color: #ead4e1;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.vehicle-count {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.vehicle-count strong {
+    display: block;
+    color: #fff;
+    font-size: 39px;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.vehicle-count span {
+    display: block;
+    color: #f0dce7;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.vehicle-total {
+    text-align: right;
+}
+
+.vehicle-total strong {
+    font-size: 33px;
+}
+
+.vehicle-footer {
+    border-top: 1px solid rgba(255,255,255,.22);
+    padding-top: 17px;
+    color: #f5e5ee;
+    font-size: 13px;
+}
+
+.vehicle-footer i {
+    color: #f5a9ce;
+    margin-right: 7px;
+}
+
+/* FORM LOGIN TETAP ADA */
+
+.auth-box {
+    width: 100%;
+    max-width: 500px;
+    padding: 0;
+}
+
+.auth-card {
+    width: 100%;
+    padding: 30px;
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 24px;
+    background: rgba(52, 19, 40, .45);
+    color: #fff;
+    box-shadow: 0 15px 40px rgba(30, 8, 22, .15);
+}
+
+.auth-card h2 {
+    color: #fff;
+}
+
+.auth-card .muted,
+.auth-card .login-help {
+    color: #ead4e1;
+}
+
+.auth-card .form-label {
+    color: #fff;
+}
+
+.auth-card .form-control {
+    min-height: 48px;
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 12px;
+    background: rgba(255,255,255,.08);
+    color: #fff;
+}
+
+.auth-card .form-control::placeholder {
+    color: #d8baca;
+}
+
+.auth-card .form-control:focus {
+    border-color: #f3a3cc;
+    box-shadow: 0 0 0 .2rem rgba(243,163,204,.18);
+}
+
+.auth-card .btn-primary {
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #d96da5, #b64e87);
+}
+
+.auth-card .btn-primary:hover {
+    background: linear-gradient(90deg, #e580b4, #c65b96);
+}
+
+/* RESPONSIVE HP */
+
+@media (max-width: 650px) {
+    .auth-page {
+        padding: 25px 16px;
+        gap: 25px;
+    }
+
+    .auth-brand > h1 {
+        font-size: 46px;
+    }
+
+    .auth-brand > p {
+        font-size: 15px;
+    }
+
+    .vehicle-parking-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .login-parking-card {
+        padding: 20px;
+    }
+
+    .parking-card-top {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .parking-info h3 {
+        font-size: 20px;
+    }
+
+    .parking-info p {
+        font-size: 13px;
+    }
+
+    .parking-count strong {
+        font-size: 38px;
+    }
+
+    .parking-card-bottom {
+        flex-wrap: wrap;
+        font-size: 12px;
+    }
+
+    .vehicle-parking-card {
+        padding: 20px;
+    }
+}
+
+.auth-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(320px, 0.8fr);
+    gap: 32px;
+    align-items: center;
+    width: 100%;
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+.parking-section {
+    width: 100%;
+    min-width: 0;
+}
+
+.auth-box {
+    width: 100%;
+    max-width: 400px;
+    justify-self: end;
+}
+
+.login-parking-card {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .auth-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .auth-box {
+        max-width: 100%;
+        justify-self: stretch;
+    }
+}
